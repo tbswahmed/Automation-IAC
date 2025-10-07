@@ -1,4 +1,4 @@
-# Vmware-Vm Automation for CUMULUS Project
+# Infrastructure Automation 
 
 ## Overview
 This project focuses on fully automating the creation and customization of Virtual Machines (VMs) (Linux and Windows) on the VMware platform, providing users with extensive customization options. Below is a detailed guide on how to automate the process for Linux VMs using Terraform, Cloud-Init, and Vault.
