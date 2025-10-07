@@ -1,0 +1,32 @@
+# VM resource definition
+vm_name             = "{{ vm_name }}"
+memory              = {{ memory }}
+cpus                = {{ cpus }}
+# Cloud-init Parameters (user/meta data)
+ssh_keys            = "{{ ssh_keys }}"
+instance_ip         = "{{ instance_ip }}"
+ipv4_gateway        = "{{ ipv4_gateway }}"
+host-name           = "{{ host_name }}"
+domain              = "{{ domain }}"
+dns                 = "{{ dns }}"
+
+
+# Optional second network interface
+
+
+# Cloud-init Userdata
+user-name           = "{{ user_name }}"
+password            = "{{ password }}" 
+
+
+
+# Additional disks
+additional_disks = [
+{% for disk in additional_disks %}
+  {
+    size = {{ disk.size }}
+  },
+{% endfor %}
+]
+
+resource_id         = "{{resource_id}}"

@@ -1,0 +1,27 @@
+---
+- name : Deploy VMware Virtual Machine
+  hosts: 10.112.31.182
+  become: true
+  gather_facts: no
+  vars:
+    additional_disks:
+      - size: 20
+    resource_id: "testworkspace-1"
+  tasks:
+    - name: Gather input variable values
+      ansible.builtin.template:
+        src: terraform.tfvars.j2
+        dest: /home/ahmedtb/Cumulus/linux-vmware-vm/terraform/terraform.tfvars 
+    - name: prepare workspace environment
+      command: " terraform workspace new {{ resource_id }}" 
+      args:
+        chdir: /home/ahmedtb/Cumulus/linux-vmware-vm/terraform
+
+    - name : Linux Virtual machine creation with full customization
+      ansible.builtin.terraform: 
+        project_path: /home/ahmedtb/Cumulus/linux-vmware-vm/terraform
+        force_init: true
+        complex_vars : true   # --> This will override terraform to accept the variables of type dictionaries, lists, and booleans
+        workspace : "{{ resource_id }}" #ressource-name
+        
+        

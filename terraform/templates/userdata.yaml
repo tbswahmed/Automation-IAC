@@ -1,0 +1,27 @@
+#cloud-config
+users:
+  - name: ${user-name}
+    ssh-authorized-keys:
+      - ${ssh_keys}
+    sudo: ${sudo-perms}
+    passwd: ${password}
+    chpasswd:
+      expire: false
+    lock_passwd: false
+    groups: ${user_groups}
+    shell: ${shell}
+  - name: guest
+    ssh-authorized-keys:
+      - ${ssh_keys}
+    passwd: ${password} # The password here is Hached  using the command " mkpasswd --method=SHA-512 --rounds=4096 " 
+    chpasswd:
+      expire: false
+    lock_passwd: false
+    groups: sudo
+    shell: /bin/bash
+
+write_files:
+  - path: /etc/sudoers.d/${user-name}
+    content: |
+      ${user-name} ALL=(ALL) NOPASSWD:ALL
+      

@@ -1,0 +1,14 @@
+#cloud-config
+#local-hostname: ${host-name}
+instance-id: RHEL8
+network:
+  version: 2
+  ethernets:
+    ens192:
+      dhcp4: false
+      addresses:
+        - ${instance_ip}
+      gateway4: ${ipv4_gateway}
+      nameservers:
+        search: ${domain}
+        addresses: ${dns}
