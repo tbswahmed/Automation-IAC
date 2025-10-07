@@ -72,11 +72,11 @@ variable "ssh_keys" {
 
 variable "instance_ip" {
   type    = string
-  #default = "10.112.41.82/24"
+  default = "####"
 }
 variable "ipv4_gateway" {
   type    = string
-  #default = "10.112.41.254"
+  default = "####"
 
  }
 variable "host-name" {
@@ -85,12 +85,11 @@ variable "host-name" {
 }
 variable "domain" {
   type    = string
-  #default = "onetech-group.corp"
-  default = "onetech-group.corp"
+  default = "###"
 }
 variable "dns" {
   type    = string
-  default = "10.112.100.21"
+  default = "####"
 }
 
 # Cloud-init Userdata
@@ -121,11 +120,11 @@ variable "user_groups" {
 ## Vault Server Credentials
 variable "vault_address" {
   type    = string
-  default = "http://10.112.61.78:8200"
+  default = "##" # vault address
 }
 variable "token" {
   type    = string
-  default = "hvs.Vm5HqvJjVdxxZ2H1qMgvEHvm"
+  default = "####"
 }
 
 

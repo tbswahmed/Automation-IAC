@@ -77,7 +77,6 @@ resource "vsphere_virtual_machine" "vm" {
 terraform {
   backend "pg" {
     conn_str = "postgres://cumulus:cumulus@10.112.63.170:5432/terraform_backend?sslmode=disable"
-    #workspace = var.resource_id 
-    #schema_name = var.resource_id
+    
   }
 }

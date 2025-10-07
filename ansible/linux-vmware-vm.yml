@@ -1,12 +1,8 @@
 ---
 - name : Deploy VMware Virtual Machine
-  hosts: 10.112.31.182
+  hosts: infranode
   become: true
   gather_facts: no
-  vars:
-    additional_disks:
-      - size: 20
-    resource_id: "testworkspace-1"
   tasks:
     - name: Gather input variable values
       ansible.builtin.template:
