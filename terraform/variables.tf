@@ -120,11 +120,11 @@ variable "user_groups" {
 ## Vault Server Credentials
 variable "vault_address" {
   type    = string
-  #default = "##" # vault address
+  default = "##" # vault address
 }
 variable "token" {
   type    = string
-  #default = "####"
+  default = "####"
 }
 
 
