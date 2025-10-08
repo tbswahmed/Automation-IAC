@@ -76,7 +76,7 @@ resource "vsphere_virtual_machine" "vm" {
 # testing terraform state
 terraform {
   backend "pg" {
-    conn_str = "postgres://cumulus:cumulus@10.112.63.170:5432/terraform_backend?sslmode=disable"
+    conn_str = "postgres://{{db_user}}:{{db_password}}@10.112.63.170:5432/{{db_name}}?sslmode=disable"
     
   }
 }
